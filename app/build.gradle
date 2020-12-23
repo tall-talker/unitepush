@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.huawei.agconnect'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.example.pushapplication"
+        minSdkVersion 19
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        manifestPlaceholders = [
+            meiZuAppId: "!0000000000000000000000",
+            meiZuAppKey: "!1111111111111111111111",
+            xiaoMiAppId: "!0000000000000000000000",
+            xiaoMiAppKey: "!1111111111111111111111",
+            oppoAppKey: "!0000000000000000000000",
+            oppoAppSecret: "!1111111111111111111111",
+            vivoAppKey: "!0000000000000000000000",
+            vivoAppSecret: "!1111111111111111111111",
+        ]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation files('libs/push-internal-4.0.2.jar')
+    implementation files('libs/MiPush_SDK_Client_3_8_5.jar')
+    implementation files('libs/heytap.jar')
+    implementation files('libs/pushOpenClient.jar')
+    implementation 'com.huawei.hms:push:5.0.2.300'
+}
