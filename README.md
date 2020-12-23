@@ -16,24 +16,33 @@ unitepush是将国内的第三方推送sdk聚合，目前支持的渠道有oppo�
 
 [魅族开放平台入口](https://login.flyme.cn/sso?appuri=https%3A%2F%2Fopen.flyme.cn%2Flogin&amp;useruri=https%3A%2F%2Fopen.flyme.cn&amp;sid=&amp;service=open&amp;autodirct=true)
 
-在module的build.gradle里面加上各渠道的参数，华为需要将
-
-[agconnect-services.json](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/android-integrating-sdk-0000001050040084-V5)
-
-文件放在工程目录里面
-
-
+在module的build.gradle里面加上各渠道的参数，华为需要将配置文件[agconnect-services.json](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/android-integrating-sdk-0000001050040084-V5)放在工程目录里面
 
 ```gradle
 manifestPlaceholders = [
-    meiZuAppId: "!0000000000000000000000",
-    meiZuAppKey: "!1111111111111111111111",
-    xiaoMiAppId: "!0000000000000000000000",
-    xiaoMiAppKey: "!1111111111111111111111",
-    oppoAppKey: "!0000000000000000000000",
-    oppoAppSecret: "!1111111111111111111111",
-    vivoAppKey: "!0000000000000000000000",
-    vivoAppSecret: "!1111111111111111111111",
+     meiZuAppId: "!0000000000000",
+     meiZuAppKey: "!rtofdlkjkdfsdjfkl",
+     xiaoMiAppId: "!0000000000000",
+     xiaoMiAppKey: "!rtofdlkjkdfsdjfkl",
+     oppoAppKey: "!0000000000000",
+     oppoAppSecret: "!rtofdlkjkdfsdjfkl",
+     vivoAppId: "!0000000000000",
+     vivoAppKey: "!rtofdlkjkdfsdjfkl",
 ]
 ```
 
+## 基础功能
+
+目前已完成的功能有初始化，反初始化，添加主题或者别名，删除主题或者别名，获取pushId，获取sdk版本，清除通知
+
+| 方法名            | 说明                                              | 参数列表和返回值          |
+| ----------------- | ------------------------------------------------- | ------------------------- |
+| initPushSdk       | 初始化推送，建议放在application的onCreate方法里面 | Context，无返回值         |
+| unInitPushSdk     | 反初始化推送，关闭推送功能                        | Context，无返回值         |
+| getPushId         | 获取PushId                                        | Context，返回String       |
+| setTopicAlias     | 添加主题或者别名                                  | Context，String，无返回值 |
+| unSetTopicAlias   | 删除主题或者别名                                  | Context，String，无返回值 |
+| clearNotification | 清除通知                                          | Context，无返回值         |
+| readVersion       | 获取sdk版本                                       | Context，返回String       |
+
+继续完善

@@ -66,7 +66,7 @@ public class UnitePushManager {
         } else if (huaWeiSet.contains(model)) {
             hwPushSdk(context);
         } else {
-            Log.e(TAG, "不支持此机型！");
+            Log.e(TAG, "initPushSdk：不支持此机型！");
         }
     }
 
@@ -87,12 +87,12 @@ public class UnitePushManager {
         } else if (huaWeiSet.contains(model)) {
             hwUnInitPushSdk(context);
         } else {
-            Log.e(TAG, "不支持此机型！");
+            Log.e(TAG, "unInitPushSdk：不支持此机型！");
         }
     }
 
     //获取清单文件中的meta
-    public static Bundle readPkgMeta(Context context) {
+    private static Bundle readPkgMeta(Context context) {
         PackageManager packageManager = context.getPackageManager();
         String packName = context.getPackageName();
         final int flag = PackageManager.GET_META_DATA;
@@ -119,28 +119,28 @@ public class UnitePushManager {
     }
 
     /* 各渠道sdk的初始化和反初始化 */
-    public static void mzPushSdk(Context context, String appId, String appKey) {
+    private static void mzPushSdk(Context context, String appId, String appKey) {
         String[] args = checkPushArgs(appId, appKey);
         PushManager.register(context, args[0], args[1]);
     }
 
-    public static void mzUnInitPushSdk(Context context, String appId, String appKey) {
+    private static void mzUnInitPushSdk(Context context, String appId, String appKey) {
         String[] args = checkPushArgs(appId, appKey);
         PushManager.unRegister(context, args[0], args[1]);
     }
 
-    public static void xmPushSdk(Context context, String appId, String appKey) {
+    private static void xmPushSdk(Context context, String appId, String appKey) {
         String[] args = checkPushArgs(appId, appKey);
         MiPushClient.registerPush(context, args[0], args[1]);
         MiPushClient.enablePush(context);
     }
 
-    public static void xmUnInitPushSdk(Context context) {
+    private static void xmUnInitPushSdk(Context context) {
         MiPushClient.unregisterPush(context);
         MiPushClient.disablePush(context);
     }
     /* 根据实际场景自行定制回调 */
-    public static void oppoPushSdk(Context context, String appKey, String appSecret) {
+    private static void oppoPushSdk(Context context, String appKey, String appSecret) {
         String[] args = checkPushArgs(appKey, appSecret);
 
         HeytapPushManager.init(context, false);
@@ -173,11 +173,11 @@ public class UnitePushManager {
         HeytapPushManager.register(context, args[0], args[1], callBack);
     }
 
-    public static void oppoUnInitPushSdk() {
+    private static void oppoUnInitPushSdk() {
         HeytapPushManager.unRegister();
     }
 
-    public static void vivoPushSdk(Context context) {
+    private static void vivoPushSdk(Context context) {
         PushClient.getInstance(context).initialize();
         PushClient.getInstance(context).turnOnPush(new IPushActionListener() {
             @Override
@@ -187,7 +187,7 @@ public class UnitePushManager {
         });
     }
 
-    public static void vivoUnInitPushSdk(Context context) {
+    private static void vivoUnInitPushSdk(Context context) {
         PushClient.getInstance(context).turnOffPush(new IPushActionListener() {
             @Override
             public void onStateChanged(int i) {
@@ -196,7 +196,7 @@ public class UnitePushManager {
         });
     }
 
-    public static void hwPushSdk(Context context) {
+    private static void hwPushSdk(Context context) {
         Task<Void> task = HmsMessaging.getInstance(context).turnOnPush();
         task.addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -212,7 +212,7 @@ public class UnitePushManager {
         });
     }
 
-    public static void hwUnInitPushSdk(Context context) {
+    private static void hwUnInitPushSdk(Context context) {
         Task<Void> task = HmsMessaging.getInstance(context).turnOffPush();
         task.addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -242,6 +242,7 @@ public class UnitePushManager {
         } else if (huaWeiSet.contains(model)) {
             return HmsInstanceId.getInstance(context).getId();
         } else {
+            Log.e(TAG, "getPushId：不支持此机型！");
             return null;
         }
     }
@@ -268,9 +269,9 @@ public class UnitePushManager {
         } else if (huaWeiSet.contains(model)) {
             HmsMessaging.getInstance(context).subscribe(topicAlias);
         } else if (oppoSet.contains(model)) {
-            Log.e(TAG, "不支持此机型！");
+            Log.e(TAG, "setTopicAlias：不支持此机型！");
         } else {
-            Log.e(TAG, "不支持此机型！");
+            Log.e(TAG, "setTopicAlias：不支持此机型！");
         }
     }
 
@@ -296,13 +297,13 @@ public class UnitePushManager {
         } else if (huaWeiSet.contains(model)) {
             HmsMessaging.getInstance(context).unsubscribe(topicAlias);
         } else if (oppoSet.contains(model)) {
-            Log.e(TAG, "不支持此机型！");
+            Log.e(TAG, "unSetTopicAlias：不支持此机型！");
         } else {
-            Log.e(TAG, "不支持此机型！");
+            Log.e(TAG, "unSetTopicAlias：不支持此机型！");
         }
     }
 
-    //清除通知栏
+    //清除通知
     public static void clearNotification(Context context) {
         String model = Build.MODEL.toLowerCase();
         if (oppoSet.contains(model)) {
@@ -312,15 +313,15 @@ public class UnitePushManager {
         } else if (xiaoMiSet.contains(model)) {
             MiPushClient.clearNotification(context);
         } else if (vivoSet.contains(model)) {
-            Log.e(TAG, "不支持此机型！");
+            Log.e(TAG, "clearNotification：不支持此机型！");
         } else if (huaWeiSet.contains(model)) {
-            Log.e(TAG, "不支持此机型！");
+            Log.e(TAG, "clearNotification：不支持此机型！");
         } else {
-            Log.e(TAG, "不支持此机型！");
+            Log.e(TAG, "clearNotification：不支持此机型！");
         }
     }
 
-    //获取版本
+    //获取sdk版本
     public static String readVersion(Context context) {
         String model = Build.MODEL.toLowerCase();
         if (vivoSet.contains(model)) {
@@ -333,8 +334,10 @@ public class UnitePushManager {
             int version = HMSPackageManager.getInstance(context).getHmsVersionCode();
             return String.valueOf(version);
         } else if (xiaoMiSet.contains(model)) {
+            Log.e(TAG, "readVersion：不支持此机型！");
             return null;
         } else {
+            Log.e(TAG, "readVersion：不支持此机型！");
             return null;
         }
     }
