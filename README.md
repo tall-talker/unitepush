@@ -18,6 +18,8 @@ unitepush是将国内的第三方推送sdk聚合，目前支持的渠道有oppo�
 
 文件放在工程目录里面
 
+[testUrl](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/android-integrating-sdk-0000001050040084-V5 )
+
 ```gradle
 manifestPlaceholders = [
     meiZuAppId: "!0000000000000000000000",
