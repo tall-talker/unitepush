@@ -9,6 +9,7 @@ import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
 
+//根据业务场景自定义回调
 public class MeiZuPushMessageReceiver extends MzPushMessageReceiver {
 
     @Override

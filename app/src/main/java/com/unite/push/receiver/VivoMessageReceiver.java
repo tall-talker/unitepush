@@ -5,6 +5,7 @@ import android.content.Context;
 import com.vivo.push.model.UnvarnishedMessage;
 import com.vivo.push.sdk.OpenClientPushMessageReceiver;
 
+//根据业务场景自定义回调
 public class VivoMessageReceiver extends OpenClientPushMessageReceiver {
 
     public VivoMessageReceiver() {

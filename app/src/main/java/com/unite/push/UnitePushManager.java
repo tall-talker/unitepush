@@ -1,4 +1,4 @@
-package com.example.pushapplication;
+package com.unite.push;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -118,6 +118,7 @@ public class UnitePushManager {
         }
     }
 
+    /* 各渠道sdk的初始化和反初始化 */
     public static void mzPushSdk(Context context, String appId, String appKey) {
         String[] args = checkPushArgs(appId, appKey);
         PushManager.register(context, args[0], args[1]);
@@ -138,7 +139,7 @@ public class UnitePushManager {
         MiPushClient.unregisterPush(context);
         MiPushClient.disablePush(context);
     }
-
+    /* 根据实际场景自行定制回调 */
     public static void oppoPushSdk(Context context, String appKey, String appSecret) {
         String[] args = checkPushArgs(appKey, appSecret);
 

@@ -3,6 +3,7 @@ package com.unite.push.receiver;
 import com.huawei.hms.push.HmsMessageService;
 import com.huawei.hms.push.RemoteMessage;
 
+//根据业务场景自定义回调
 public class HuaWeiMessageService extends HmsMessageService {
 
     @Override

@@ -6,6 +6,7 @@ import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import com.xiaomi.mipush.sdk.PushMessageReceiver;
 
+//根据业务场景自定义回调
 public class XiaoMiPushMessageReceiver extends PushMessageReceiver {
 
     @Override
