@@ -6,7 +6,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.example.pushapplication"
+        applicationId "com.unite.push"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1

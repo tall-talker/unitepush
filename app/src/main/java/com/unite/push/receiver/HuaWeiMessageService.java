@@ -1,4 +1,4 @@
-package com.example.pushapplication.receiver;
+package com.unite.push.receiver;
 
 import com.huawei.hms.push.HmsMessageService;
 import com.huawei.hms.push.RemoteMessage;

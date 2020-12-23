@@ -1,7 +1,10 @@
-package com.example.pushapplication;
+package com.unite.push;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.pushapplication.R;
+import com.example.pushapplication.UnitePushManager;
 
 public class MainActivity extends AppCompatActivity {
 
