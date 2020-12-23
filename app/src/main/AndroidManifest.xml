@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.pushapplication">
+    package="com.unite.push">
 
     <!--可选，用于兼容 Flyme5 且推送服务是旧版本的情况-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
