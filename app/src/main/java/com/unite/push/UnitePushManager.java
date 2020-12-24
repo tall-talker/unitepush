@@ -48,7 +48,7 @@ public class UnitePushManager {
     public static void initPushSdk(Context context) {
         Bundle meta = readPkgMeta(context);
         //把手机品牌都转成小写，判断当前的机型，然后调用对应的初始化
-        String model = Build.MODEL.toLowerCase();
+        String model = Build.MANUFACTURER.toLowerCase();
         if (vivoSet.contains(model)) {
             vivoPushSdk(context);
         } else if (oppoSet.contains(model)) {
@@ -73,7 +73,7 @@ public class UnitePushManager {
     //各渠道推送反初始化
     public static void unInitPushSdk(Context context) {
         Bundle meta = readPkgMeta(context);
-        String model = Build.MODEL.toLowerCase();
+        String model = Build.MANUFACTURER.toLowerCase();
         if (vivoSet.contains(model)) {
             vivoUnInitPushSdk(context);
         } else if (oppoSet.contains(model)) {
@@ -230,7 +230,7 @@ public class UnitePushManager {
 
     //获取pushId, 注意oppo是异步的
     public static String getPushId(Context context) {
-        String model = Build.MODEL.toLowerCase();
+        String model = Build.MANUFACTURER.toLowerCase();
         if (vivoSet.contains(model)) {
             return PushClient.getInstance(context).getRegId();
         } else if (oppoSet.contains(model)) {
@@ -249,7 +249,7 @@ public class UnitePushManager {
 
     //添加主题或者别名
     public static void setTopicAlias(Context context, String topicAlias) {
-        String model = Build.MODEL.toLowerCase();
+        String model = Build.MANUFACTURER.toLowerCase();
         Bundle meta = readPkgMeta(context);
 
         if (vivoSet.contains(model)) {
@@ -277,7 +277,7 @@ public class UnitePushManager {
 
     //删除主题或者别名
     public static void unSetTopicAlias(Context context, String topicAlias) {
-        String model = Build.MODEL.toLowerCase();
+        String model = Build.MANUFACTURER.toLowerCase();
         Bundle meta = readPkgMeta(context);
 
         if (vivoSet.contains(model)) {
@@ -305,7 +305,7 @@ public class UnitePushManager {
 
     //清除通知
     public static void clearNotification(Context context) {
-        String model = Build.MODEL.toLowerCase();
+        String model = Build.MANUFACTURER.toLowerCase();
         if (oppoSet.contains(model)) {
             HeytapPushManager.clearNotifications();
         } else if (meiZuSet.contains(model)) {
@@ -323,7 +323,7 @@ public class UnitePushManager {
 
     //获取sdk版本
     public static String readVersion(Context context) {
-        String model = Build.MODEL.toLowerCase();
+        String model = Build.MANUFACTURER.toLowerCase();
         if (vivoSet.contains(model)) {
             return PushClient.getInstance(context).getVersion();
         } else if (oppoSet.contains(model)) {
