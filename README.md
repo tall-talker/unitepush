@@ -4,7 +4,7 @@ unitepush是将国内的第三方推送sdk聚合，目前支持的渠道有oppo�
 
 ## 配置
 
-在各渠道开放平台申请账号和参数，测试的时候需要用到不同的机型
+在各渠道开放平台申请账号和参数，测试的时候需要用到不同的机型，下面是各渠道开放入口
 
 [oppo开放平台入口](https://id.heytap.com/index.html?callback=https%3A%2F%2Fopen.oppomobile.com)
 
@@ -16,7 +16,7 @@ unitepush是将国内的第三方推送sdk聚合，目前支持的渠道有oppo�
 
 [魅族开放平台入口](https://login.flyme.cn/sso?appuri=https%3A%2F%2Fopen.flyme.cn%2Flogin&amp;useruri=https%3A%2F%2Fopen.flyme.cn&amp;sid=&amp;service=open&amp;autodirct=true)
 
-在module的build.gradle里面加上各渠道的参数，主要是appId和appKey，注意前面加了一个感叹号以防止数字的类型转换，华为需要将配置文件[agconnect-services.json](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/android-integrating-sdk-0000001050040084-V5)放在工程目录里面
+在module的build.gradle里面加上各渠道的参数，主要是各渠道的appId和appKey，不要改前面的键仅仅改后面的值就行了，注意值的前面加了一个感叹号以防止数字的类型转换，数组最终会替换成清单文件里对应的参数，华为需要将配置文件[agconnect-services.json](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/android-integrating-sdk-0000001050040084-V5)放在工程目录里面
 
 ```gradle
 manifestPlaceholders = [
@@ -45,4 +45,4 @@ manifestPlaceholders = [
 | clearNotification | 清除通知                                          | Context，无返回值         |
 | readVersion       | 获取sdk版本                                       | Context，返回String       |
 
-继续完善
+继续完善😀😃
