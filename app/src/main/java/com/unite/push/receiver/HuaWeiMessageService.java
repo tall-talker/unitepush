@@ -7,6 +7,7 @@ import com.huawei.hms.push.RemoteMessage;
 public class HuaWeiMessageService extends HmsMessageService {
 
     @Override
+    //接收透传消息方法。
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
     }
@@ -17,17 +18,20 @@ public class HuaWeiMessageService extends HmsMessageService {
     }
 
     @Override
-    public void onMessageSent(String s) {
+    //发送上行消息成功回调方法。
+    public void onMessageSent(String msgId) {
 
     }
 
     @Override
-    public void onMessageDelivered(String s, Exception e) {
+    //发送上行消息时如果使用了消息回执能力，消息到达App服务器后，App服务器的应答消息通过本方法回调给应用。
+    public void onMessageDelivered(String msgId, Exception exception) {
 
     }
 
     @Override
-    public void onNewToken(String s) {
+    //服务端更新token回调方法。
+    public void onNewToken(String token) {
 
     }
 }

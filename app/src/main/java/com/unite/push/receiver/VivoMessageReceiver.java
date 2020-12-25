@@ -8,10 +8,6 @@ import com.vivo.push.sdk.OpenClientPushMessageReceiver;
 //根据业务场景自定义回调
 public class VivoMessageReceiver extends OpenClientPushMessageReceiver {
 
-    public VivoMessageReceiver() {
-        super();
-    }
-
     @Override
     public void onReceiveRegId(Context context, String regId) {
 

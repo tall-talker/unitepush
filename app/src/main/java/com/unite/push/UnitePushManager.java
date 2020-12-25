@@ -147,27 +147,27 @@ public class UnitePushManager {
         HeytapPushManager.init(context, false);
         ICallBackResultService callBack = new ICallBackResultService() {
             @Override
-            public void onRegister(int i, String s) {
+            public void onRegister(int responseCode, String registerID) {
 
             }
 
             @Override
-            public void onUnRegister(int i) {
+            public void onUnRegister(int responseCode) {
 
             }
 
             @Override
-            public void onSetPushTime(int i, String s) {
+            public void onSetPushTime(int responseCode, String registerID) {
 
             }
 
             @Override
-            public void onGetPushStatus(int i, int i1) {
+            public void onGetPushStatus(int responseCode, int status) {
 
             }
 
             @Override
-            public void onGetNotificationStatus(int i, int i1) {
+            public void onGetNotificationStatus(int responseCode, int status) {
 
             }
         };
@@ -182,7 +182,7 @@ public class UnitePushManager {
         PushClient.getInstance(context).initialize();
         PushClient.getInstance(context).turnOnPush(new IPushActionListener() {
             @Override
-            public void onStateChanged(int i) {
+            public void onStateChanged(int state) {
 
             }
         });
@@ -191,7 +191,7 @@ public class UnitePushManager {
     private static void vivoUnInitPushSdk(Context context) {
         PushClient.getInstance(context).turnOffPush(new IPushActionListener() {
             @Override
-            public void onStateChanged(int i) {
+            public void onStateChanged(int state) {
 
             }
         });
