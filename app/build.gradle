@@ -14,14 +14,14 @@ android {
         /* 在前面加感叹号保证getString不发生类型转换，
         * 否则即使数字被引号包裹，仍然会被识别为整形 */
         manifestPlaceholders = [
-            meiZuAppId: "!0000000000000000000000",
-            meiZuAppKey: "!1111111111111111111111",
-            xiaoMiAppId: "!0000000000000000000000",
-            xiaoMiAppKey: "!1111111111111111111111",
-            oppoAppKey: "!0000000000000000000000",
-            oppoAppSecret: "!1111111111111111111111",
-            vivoAppId: "!0000000000000000000000",
-            vivoAppKey: "!1111111111111111111111",
+                meiZuAppId: "!0000000000000",
+                meiZuAppKey: "!rtofdlkjkdfsdjfkl",
+                xiaoMiAppId: "!0000000000000",
+                xiaoMiAppKey: "!rtofdlkjkdfsdjfkl",
+                oppoAppKey: "!0000000000000",
+                oppoAppSecret: "!rtofdlkjkdfsdjfkl",
+                vivoAppId: "!0000000000000",
+                vivoAppKey: "!rtofdlkjkdfsdjfkl",
         ]
     }
 

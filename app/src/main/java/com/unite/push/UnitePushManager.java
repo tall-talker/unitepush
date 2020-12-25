@@ -66,7 +66,7 @@ public class UnitePushManager {
         } else if (huaWeiSet.contains(model)) {
             hwPushSdk(context);
         } else {
-            Log.e(TAG, "initPushSdk：不支持此机型！");
+            Log.e(TAG, "initPushSdk：不支持此机型：" + model);
         }
     }
 
@@ -87,7 +87,7 @@ public class UnitePushManager {
         } else if (huaWeiSet.contains(model)) {
             hwUnInitPushSdk(context);
         } else {
-            Log.e(TAG, "unInitPushSdk：不支持此机型！");
+            Log.e(TAG, "unInitPushSdk：不支持此机型：" + model);
         }
     }
 
@@ -139,6 +139,7 @@ public class UnitePushManager {
         MiPushClient.unregisterPush(context);
         MiPushClient.disablePush(context);
     }
+
     /* 根据实际场景自行定制回调 */
     private static void oppoPushSdk(Context context, String appKey, String appSecret) {
         String[] args = checkPushArgs(appKey, appSecret);
@@ -242,7 +243,7 @@ public class UnitePushManager {
         } else if (huaWeiSet.contains(model)) {
             return HmsInstanceId.getInstance(context).getId();
         } else {
-            Log.e(TAG, "getPushId：不支持此机型！");
+            Log.e(TAG, "getPushId：不支持此机型：" + model);
             return null;
         }
     }
@@ -269,9 +270,9 @@ public class UnitePushManager {
         } else if (huaWeiSet.contains(model)) {
             HmsMessaging.getInstance(context).subscribe(topicAlias);
         } else if (oppoSet.contains(model)) {
-            Log.e(TAG, "setTopicAlias：不支持此机型！");
+            Log.e(TAG, "setTopicAlias：不支持此机型：" + model);
         } else {
-            Log.e(TAG, "setTopicAlias：不支持此机型！");
+            Log.e(TAG, "setTopicAlias：不支持此机型：" + model);
         }
     }
 
@@ -297,9 +298,9 @@ public class UnitePushManager {
         } else if (huaWeiSet.contains(model)) {
             HmsMessaging.getInstance(context).unsubscribe(topicAlias);
         } else if (oppoSet.contains(model)) {
-            Log.e(TAG, "unSetTopicAlias：不支持此机型！");
+            Log.e(TAG, "unSetTopicAlias：不支持此机型：" + model);
         } else {
-            Log.e(TAG, "unSetTopicAlias：不支持此机型！");
+            Log.e(TAG, "unSetTopicAlias：不支持此机型：" + model);
         }
     }
 
@@ -313,11 +314,11 @@ public class UnitePushManager {
         } else if (xiaoMiSet.contains(model)) {
             MiPushClient.clearNotification(context);
         } else if (vivoSet.contains(model)) {
-            Log.e(TAG, "clearNotification：不支持此机型！");
+            Log.e(TAG, "clearNotification：不支持此机型：" + model);
         } else if (huaWeiSet.contains(model)) {
-            Log.e(TAG, "clearNotification：不支持此机型！");
+            Log.e(TAG, "clearNotification：不支持此机型：" + model);
         } else {
-            Log.e(TAG, "clearNotification：不支持此机型！");
+            Log.e(TAG, "clearNotification：不支持此机型：" + model);
         }
     }
 
@@ -334,10 +335,10 @@ public class UnitePushManager {
             int version = HMSPackageManager.getInstance(context).getHmsVersionCode();
             return String.valueOf(version);
         } else if (xiaoMiSet.contains(model)) {
-            Log.e(TAG, "readVersion：不支持此机型！");
+            Log.e(TAG, "readVersion：不支持此机型：" + model);
             return null;
         } else {
-            Log.e(TAG, "readVersion：不支持此机型！");
+            Log.e(TAG, "readVersion：不支持此机型：" + model);
             return null;
         }
     }
